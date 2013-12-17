@@ -2,7 +2,6 @@
 #define MESHVIEW_H
 
 #include <QQuickItem>
-#include <QtGui/QOpenGLShaderProgram>
 
 class MeshView : public QQuickItem
 {
@@ -17,13 +16,17 @@ public slots:
     void cleanup();
     void sync();
 
+protected:
+
 private slots:
     void handleWindowChanged(QQuickWindow *win);
 
 public slots:
+    void onTimer();
 
 private:
-    QOpenGLShaderProgram *m_program;
+    int rot_x, thread_rot_x;
+    int rot_y, thread_rot_y;
 
 
 };
